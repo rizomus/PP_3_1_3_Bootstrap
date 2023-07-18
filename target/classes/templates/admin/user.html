@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Spring Security Example</title>
+</head>
+<body>
+
+<p th:text="${user.getUsername() + ', ' + user.getAge()}">VALUE</p>
+<p th:text="${'Email: ' + user.getEmail()}">VALUE</p>
+
+<p></p>
+
+<a th:href="@{{id}/edit(id=${user.getId()})}">Edit</a>
+
+<p></p>
+<a href="/logout">LOGOUT</a>
+
+<p></p>
+<form th:method="POST" th:action="@{/admin/delete/{id}(id=${user.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+
+</body>
+</html>
